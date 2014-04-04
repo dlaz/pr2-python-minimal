@@ -8,9 +8,9 @@
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/state_transformer</url>
-  <depend package="planning_environment"/>
+  <!-- <depend package="planning_environment"/> -->
   <depend package="roscpp"/>
-  <depend package="arm_navigation_msgs"/>
+  <!-- <depend package="arm_navigation_msgs"/> -->
   <depend package="geometry_msgs"/>
 
 </package>
