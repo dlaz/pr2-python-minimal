@@ -23,7 +23,6 @@ A Python library to simplify executing actions on the PR2
   <depend package="std_srvs"/>
   <!-- <depend package="object_manipulation_msgs"/> -->
   <!-- <depend package="sbpl_3dnav_planner"/> -->
-  <depend package="state_transformer"/>
   <depend package="nav_msgs"/>
   <!-- <depend package="pose_follower_3d"/> -->
 </package>
