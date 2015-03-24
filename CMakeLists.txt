@@ -14,3 +14,7 @@ catkin_package(
 include_directories( ${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
 
 install(PROGRAMS scripts/print_joint_states.py scripts/print_transform.py scripts/print_base_pose.py scripts/move_to_look.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+# if (CATKIN_ENABLE_TESTING)
+#     catkin_add_nosetests(nosetests/tests.py) # this test doesn't do anything useful
+# endif()
