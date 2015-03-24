@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import roslib; roslib.load_manifest('pr2_python')
 
 def test_arm_nav_error():

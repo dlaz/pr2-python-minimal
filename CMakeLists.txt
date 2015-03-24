@@ -1,19 +1,20 @@
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+cmake_minimum_required(VERSION 2.8.3)
+project(pr2_python)
 
-set(ROSPACK_MAKEDIST true)
+find_package(catkin REQUIRED COMPONENTS nav_msgs pr2_mechanism_msgs std_srvs actionlib sensor_msgs rospy visualization_msgs move_base_msgs geometry_msgs pr2_controllers_msgs)
+catkin_python_setup()
 
-# Append to CPACK_SOURCE_IGNORE_FILES a semicolon-separated list of
-# directories (or patterns, but directories should suffice) that should
-# be excluded from the distro.  This is not the place to put things that
-# should be ignored everywhere, like "build" directories; that happens in
-# rosbuild/rosbuild.cmake.  Here should be listed packages that aren't
-# ready for inclusion in a distro.
-#
-# This list is combined with the list in rosbuild/rosbuild.cmake.  Note
-# that CMake 2.6 may be required to ensure that the two lists are combined
-# properly.  CMake 2.4 seems to have unpredictable scoping rules for such
-# variables.
-#list(APPEND CPACK_SOURCE_IGNORE_FILES /core/experimental)
+catkin_package(
+    DEPENDS  # TODO
+    CATKIN_DEPENDS nav_msgs pr2_mechanism_msgs std_srvs actionlib sensor_msgs rospy visualization_msgs move_base_msgs geometry_msgs pr2_controllers_msgs
+    INCLUDE_DIRS # TODO include
+    LIBRARIES # TODO
+)
 
-rosbuild_make_distribution(1.4.4)
+include_directories( ${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
+
+install(PROGRAMS scripts/print_joint_states.py scripts/print_transform.py scripts/print_base_pose.py scripts/move_to_look.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+# if (CATKIN_ENABLE_TESTING)
+#     catkin_add_nosetests(nosetests/tests.py) # this test doesn't do anything useful
+# endif()
